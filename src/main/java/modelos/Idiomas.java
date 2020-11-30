@@ -14,24 +14,24 @@ public class Idiomas {
 	//Atributos
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
+	@Column(name="idioma_id")
 	private int idioma_id;
 	@Column(name="siglas")
 	private String siglas;
 	@Column(name="nombre_idioma")
 	private String nombre_idioma;
 	
-	/*@OneToOne(mappedBy = "idiomas")
-	@Column(name="cursos")
-	private Cursos c;*/
+	@OneToOne(mappedBy = "idiomas")
+	private Cursos c;
 	
 	//Constructores
-	public Idiomas(String siglas, String nombre_idioma) {
+	public Idiomas(String siglas, String nombre_idioma, Cursos c) {
 		super();
 		this.siglas = siglas;
 		this.nombre_idioma = nombre_idioma;
-		/*this.c = c;*/
+		this.c = c;
 	}
+	
 	public Idiomas() {
 		super();
 	}
@@ -42,6 +42,12 @@ public class Idiomas {
 	}
 	public String getSiglas() {
 		return siglas;
+	}
+	public Cursos getC() {
+		return c;
+	}
+	public void setC(Cursos c) {
+		this.c = c;
 	}
 	public String getNombre_idioma() {
 		return nombre_idioma;

@@ -26,9 +26,9 @@ public class Categorias {
 	//Relaciones
 	@ManyToOne()
 	private Cursos c;
-	/*@OneToMany()
+	@OneToMany()
 	@JoinColumn(name = "nivel_id")
-	private List<Niveles> n;*/
+	private List<Niveles> n;
 	
 	//Constructores
 	public Categorias() {
@@ -38,7 +38,7 @@ public class Categorias {
 		super();
 		this.nombre_categoria = nombre_categoria;
 		this.c = c;
-		//this.n = n;
+		this.n = n;
 	}
 	//Getters && Setters
 	public int getCategoria_id() {
@@ -60,11 +60,11 @@ public class Categorias {
 	public void setC(Cursos c) {
 		this.c = c;
 	}
-	/*public List<Niveles> getN() {
+	public List<Niveles> getN() {
 		return n;
 	}
 	public void setN(List<Niveles> n) {
 		this.n = n;
-	}*/
+	}
 	
 }

@@ -10,6 +10,7 @@ import org.hibernate.service.ServiceRegistry;
 
 import modelos.Categorias;
 import modelos.Cursos;
+import modelos.Exercicis;
 import modelos.Idiomas;
 import modelos.Niveles;
 
@@ -42,6 +43,7 @@ public class HibernateUtils {
 				configuration.addAnnotatedClass(Cursos.class);
 				configuration.addAnnotatedClass(Categorias.class);
 				configuration.addAnnotatedClass(Niveles.class);
+				configuration.addAnnotatedClass(Exercicis.class);
 
 				ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
 

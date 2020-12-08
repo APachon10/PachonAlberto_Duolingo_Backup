@@ -17,11 +17,8 @@ public class Prueba {
 	public static void main(String[] args) {
 		ArrayList<Cursos> c4 = new ArrayList<Cursos>();
 		ArrayList<Categorias> categories = new ArrayList<Categorias>();
-		ArrayList<Integer> lista_ejercicios = new ArrayList<Integer>();
 		ArrayList<Exercicis> ejercicios = new ArrayList<Exercicis>();
 		ArrayList<Niveles> lista_niveles = new ArrayList<Niveles>();
-		lista_ejercicios.add(1);
-		lista_ejercicios.add(2);
 		//Idiomas
 		Idiomas d= new Idiomas();
 		d.setNombre_idioma("Catalan");
@@ -47,10 +44,14 @@ public class Prueba {
 		cat1.setC(c);
 		//Niveles
 		Niveles n = new Niveles();
-		n.setC(cat1);
-		//n.setEjercicios(ejercicios);
-		n.setN_Nivel("1");
 		
+		n.setN_Nivel("1");
+		//Ejercicios
+		Exercicis ex = new Exercicis();
+		ex.setLista_ejercicios(3);
+		ex.setNivel(n);
+		
+		n.setEjercicios(ejercicios);
 		cat1.setN(lista_niveles);
 		//Metemos las categorias dentro del curso 
 		c.setC2(categories);
@@ -73,6 +74,8 @@ public class Prueba {
 			session.save(cat1);
 			
 			session.save(n);
+			
+			session.save(ex);
 			t.commit();
 		}catch(Exception e){
 			e.printStackTrace();

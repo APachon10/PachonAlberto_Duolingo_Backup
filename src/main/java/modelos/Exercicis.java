@@ -25,10 +25,10 @@ public class Exercicis {
 	//Relaciones
 	@ManyToOne()
 	private Niveles nivel;
-	/*@OneToOne()
+	@OneToOne()
 	private TiposdeEjercicio tipos_ejercicio;
 	@OneToOne()
-	private EjerciciosResueltos ejercicio_resuelto;*/
+	private EjerciciosResueltos ejercicio_resuelto;
 	
 	//Constructores
 	public Exercicis() {
@@ -39,8 +39,8 @@ public class Exercicis {
 		super();
 		this.num_ejercicios = num_ejercicios;
 		this.nivel = nivel;
-		//this.tipos_ejercicio = tipos_ejercicio;
-		//this.ejercicio_resuelto = ejercicio_resuelto;
+		this.tipos_ejercicio = tipos_ejercicio;
+		this.ejercicio_resuelto = ejercicio_resuelto;
 	}
 
 
@@ -51,12 +51,12 @@ public class Exercicis {
 	public int getnum_ejercicios() {
 		return num_ejercicios;
 	}
-	/*public TiposdeEjercicio getTipos_ejercicio() {
+	public TiposdeEjercicio getTipos_ejercicio() {
 		return tipos_ejercicio;
 	}
 	public EjerciciosResueltos getEjercicio_resuelto() {
 		return ejercicio_resuelto;
-	}*/
+	}
 	public void setId(int 
 			id) {
 		this.id = id;
@@ -64,12 +64,12 @@ public class Exercicis {
 	public void setLista_ejercicios(int num_ejercicios) {
 		this.num_ejercicios = num_ejercicios;
 	}
-	/*public void setTipos_ejercicio(TiposdeEjercicio tipos_ejercicio) {
+	public void setTipos_ejercicio(TiposdeEjercicio tipos_ejercicio) {
 		this.tipos_ejercicio = tipos_ejercicio;
 	}
 	public void setEjercicio_resuelto(EjerciciosResueltos ejercicio_resuelto) {
 		this.ejercicio_resuelto = ejercicio_resuelto;
-	}*/
+	}
 	public Niveles getNivel() {
 		return nivel;
 	}

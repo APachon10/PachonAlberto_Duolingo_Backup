@@ -11,6 +11,7 @@ import org.hibernate.service.ServiceRegistry;
 import modelos.Categorias;
 import modelos.Cursos;
 import modelos.Idiomas;
+import modelos.Niveles;
 
 public class HibernateUtils {
 	private static SessionFactory sessionFactory;
@@ -40,6 +41,7 @@ public class HibernateUtils {
 				configuration.addAnnotatedClass(Idiomas.class);
 				configuration.addAnnotatedClass(Cursos.class);
 				configuration.addAnnotatedClass(Categorias.class);
+				configuration.addAnnotatedClass(Niveles.class);
 
 				ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
 

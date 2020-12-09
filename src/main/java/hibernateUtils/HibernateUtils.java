@@ -10,7 +10,6 @@ import org.hibernate.service.ServiceRegistry;
 
 import modelos.Categorias;
 import modelos.Cursos;
-import modelos.Exercicis;
 import modelos.Idiomas;
 import modelos.Niveles;
 
@@ -27,8 +26,8 @@ public class HibernateUtils {
 
 				settings.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
 				settings.put(Environment.URL, "jdbc:mysql://localhost:3306/duolingo?severTimezone=UTC");
-				settings.put(Environment.USER, "User1");
-				settings.put(Environment.PASS, "123");
+				settings.put(Environment.USER, "root");
+				settings.put(Environment.PASS, "");
 				settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
 				
 				settings.put(Environment.SHOW_SQL, "true");
@@ -43,7 +42,6 @@ public class HibernateUtils {
 				configuration.addAnnotatedClass(Cursos.class);
 				configuration.addAnnotatedClass(Categorias.class);
 				configuration.addAnnotatedClass(Niveles.class);
-				configuration.addAnnotatedClass(Exercicis.class);
 
 				ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
 

@@ -67,4 +67,5 @@ public class Idiomas {
 		this.nombre_idioma = nombre_idioma;
 	}
 
+	
 }

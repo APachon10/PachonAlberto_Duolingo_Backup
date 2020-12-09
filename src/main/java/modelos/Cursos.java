@@ -77,5 +77,10 @@ public class Cursos {
 	public void setC2(List<Categorias> c2) {
 		this.c2 = c2;
 	}
-
+	@Override
+	public String toString() {
+		return "Cursos [curso_id=" + curso_id + ", nombre_curso=" + nombre_curso + ", L_Origen=" + L_Origen
+				+ ", L_Destino=" + L_Destino + ", c2=" + c2 + "]";
+	}
+	
 }

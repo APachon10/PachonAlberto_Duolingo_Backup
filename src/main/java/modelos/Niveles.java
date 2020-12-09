@@ -25,19 +25,15 @@ public class Niveles {
 	//Relaciones
 	@ManyToOne()
 	private Categorias c;
-	/*@OneToMany()
-	@JoinColumn(name="exercici_id")
-	private List<Exercicis> ejercicios;*/
 	
 	//Constructores
 	public Niveles() {
 		super();
 	}
-	public Niveles(String n_Nivel, Categorias c, List<Exercicis> ejercicios) {
+	public Niveles(String n_Nivel, Categorias c) {
 		super();
 		this.n_Nivel = n_Nivel;
 		this.c = c;
-		//this.ejercicios = ejercicios;
 	}
 	
 	//Getters && Setters 
@@ -50,9 +46,6 @@ public class Niveles {
 	public Categorias getC() {
 		return c;
 	}
-	/*public List<Exercicis> getEjercicios() {
-		return ejercicios;
-	}*/
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -62,7 +55,5 @@ public class Niveles {
 	public void setC(Categorias c) {
 		this.c = c;
 	}
-	/*public void setEjercicios(List<Exercicis> ejercicios) {
-		this.ejercicios = ejercicios;
-	}*/
+	
 }

@@ -6,9 +6,10 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import hibernateUtils.HibernateUtils;
+import implementaciones.CursImpl;
+import interfaces.ICursos;
 import modelos.Categorias;
 import modelos.Cursos;
-import modelos.Exercicis;
 import modelos.Idiomas;
 import modelos.Niveles;
 
@@ -17,11 +18,7 @@ public class Prueba {
 	public static void main(String[] args) {
 		ArrayList<Cursos> c4 = new ArrayList<Cursos>();
 		ArrayList<Categorias> categories = new ArrayList<Categorias>();
-		ArrayList<Integer> lista_ejercicios = new ArrayList<Integer>();
-		ArrayList<Exercicis> ejercicios = new ArrayList<Exercicis>();
 		ArrayList<Niveles> lista_niveles = new ArrayList<Niveles>();
-		lista_ejercicios.add(1);
-		lista_ejercicios.add(2);
 		//Idiomas
 		Idiomas d= new Idiomas();
 		d.setNombre_idioma("Catalan");
@@ -47,8 +44,7 @@ public class Prueba {
 		cat1.setC(c);
 		//Niveles
 		Niveles n = new Niveles();
-		n.setC(cat1);
-		//n.setEjercicios(ejercicios);
+		
 		n.setN_Nivel("1");
 		
 		cat1.setN(lista_niveles);
@@ -74,9 +70,14 @@ public class Prueba {
 			
 			session.save(n);
 			t.commit();
+			
+			System.out.println("Cursos Disponibles");
+			ICursos manCursos= new CursImpl();
+			manCursos.obtenerCursos(c4);
 		}catch(Exception e){
 			e.printStackTrace();
 		}		
-
 	}
+	
+	
 }

@@ -68,7 +68,12 @@ public class Idiomas {
 	}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
+}
+>>>>>>> dev
+=======
+	
 }
 >>>>>>> dev

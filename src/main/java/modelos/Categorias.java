@@ -66,5 +66,10 @@ public class Categorias {
 	public void setN(List<Niveles> n) {
 		this.n = n;
 	}
+	@Override
+	public String toString() {
+		return "Categorias [categoria_id=" + categoria_id + ", nombre_categoria=" + nombre_categoria + ", c=" + c
+				+ ", n=" + n + "]";
+	}
 	
 }

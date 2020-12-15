@@ -22,8 +22,4 @@ public class Plantilla_Ejercicio {
 		posibles_respuestas.add(res3);
 		return posibles_respuestas;
 	}
-	public ArrayList<Ejercicios> crearListadeEjercicios(ArrayList<Ejercicios> ex){
-		
-		return ex;
-	}
 }

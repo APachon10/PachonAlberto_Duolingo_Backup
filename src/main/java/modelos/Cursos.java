@@ -23,6 +23,7 @@ public class Cursos {
 	@Column(name="curso_id")
 	private int idioma_id;
 	@Column(name="nombre_curso")
+	private String nombre_curso;
 	
 	//Relaciones
 	@ManyToOne()

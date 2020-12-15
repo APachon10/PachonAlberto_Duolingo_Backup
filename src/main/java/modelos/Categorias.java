@@ -24,7 +24,6 @@ public class Categorias {
 	private int id;
 	@Column(name="categoria_nombre")
 	private String categoria_nombre;
-	@Column(name="curso_id")
 	
 	//Relaciones
 	@ManyToOne()

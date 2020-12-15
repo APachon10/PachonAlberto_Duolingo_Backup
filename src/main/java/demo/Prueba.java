@@ -6,6 +6,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import hibernateUtils.HibernateUtils;
+import implementaciones.IdiomaImpl;
+import interfaces.IIdiomas;
 import modelos.Categorias;
 import modelos.Cursos;
 import modelos.Idiomas;
@@ -26,6 +28,9 @@ public class Prueba {
 			session.save(i);
 			
 			t.commit();
+			
+			IIdiomas i2 =  new IdiomaImpl();
+			i2.obtenerIdiomas();
 		}catch(Exception e2) {
 			e2.printStackTrace();
 		}

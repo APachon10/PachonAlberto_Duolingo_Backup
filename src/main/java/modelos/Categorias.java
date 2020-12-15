@@ -1,5 +1,6 @@
 package modelos;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -10,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,57 +21,57 @@ public class Categorias {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="categoria_id")
-	private int categoria_id;
-	@Column(name="nombre_categoria")
-	private String nombre_categoria;
+	private int id;
+	@Column(name="categoria_nombre")
+	private String categoria_nombre;
+	@Column(name="curso_id")
 	
 	//Relaciones
 	@ManyToOne()
 	private Cursos c;
 	@OneToMany()
-	@JoinColumn(name = "nivel_id")
-	private List<Niveles> n;
+	@JoinColumn(name="nivel_id")
+	private List<Niveles> n2;
 	
-	//Constructores
+	//Contructores
 	public Categorias() {
 		super();
 	}
-	public Categorias(String nombre_categoria, Cursos c, List<Niveles> n) {
+	public Categorias(String categoria_nombre, Cursos c, List<Niveles> n2) {
 		super();
-		this.nombre_categoria = nombre_categoria;
+		this.categoria_nombre = categoria_nombre;
 		this.c = c;
-		this.n = n;
+		this.n2 = n2;
 	}
+	
 	//Getters && Setters
-	public int getCategoria_id() {
-		return categoria_id;
+	public int getId() {
+		return id;
 	}
-	public String getNombre_categoria() {
-		return nombre_categoria;
+	public String getCategoria_nombre() {
+		return categoria_nombre;
 	}
 	public Cursos getC() {
 		return c;
 	}
-
-	public void setCategoria_id(int categoria_id) {
-		this.categoria_id = categoria_id;
+	public List<Niveles> getN2() {
+		return n2;
 	}
-	public void setNombre_categoria(String nombre_categoria) {
-		this.nombre_categoria = nombre_categoria;
+	public void setId(int id) {
+		this.id = id;
+	}
+	public void setCategoria_nombre(String categoria_nombre) {
+		this.categoria_nombre = categoria_nombre;
 	}
 	public void setC(Cursos c) {
 		this.c = c;
 	}
-	public List<Niveles> getN() {
-		return n;
+	public void setN2(List<Niveles> n2) {
+		this.n2 = n2;
 	}
-	public void setN(List<Niveles> n) {
-		this.n = n;
-	}
+	//To String
 	@Override
 	public String toString() {
-		return "Categorias [categoria_id=" + categoria_id + ", nombre_categoria=" + nombre_categoria + ", c=" + c
-				+ ", n=" + n + "]";
+		return "Categorias [id=" + id + ", categoria_nombre=" + categoria_nombre + ", c=" + c + ", n2=" + n2 + "]";
 	}
-	
 }

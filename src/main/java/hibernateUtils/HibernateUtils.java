@@ -8,10 +8,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
 
-import modelos.Categorias;
-import modelos.Cursos;
 import modelos.Idiomas;
-import modelos.Niveles;
 
 public class HibernateUtils {
 	private static SessionFactory sessionFactory;
@@ -34,15 +31,12 @@ public class HibernateUtils {
 
 				settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 
-				settings.put(Environment.HBM2DDL_AUTO, "create-drop");
+				settings.put(Environment.HBM2DDL_AUTO, "update");
 
 				configuration.setProperties(settings);
 
 				configuration.addAnnotatedClass(Idiomas.class);
-				configuration.addAnnotatedClass(Cursos.class);
-				configuration.addAnnotatedClass(Categorias.class);
-				configuration.addAnnotatedClass(Niveles.class);
-
+				
 				ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
 
 				sessionFactory = configuration.buildSessionFactory(serviceRegistry);

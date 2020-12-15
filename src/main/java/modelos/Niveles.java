@@ -20,40 +20,47 @@ public class Niveles {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="nivel_id")
 	private int id;
-	@Column(name="nombre_nivel")
-	private String n_Nivel;
+	
 	//Relaciones
 	@ManyToOne()
-	private Categorias c;
+	private Categorias cat;
+	@OneToMany()
+	@JoinColumn(name="ejercicio_id")
+	private List<Ejercicios> ex;
 	
 	//Constructores
 	public Niveles() {
 		super();
 	}
-	public Niveles(String n_Nivel, Categorias c) {
+	public Niveles(Categorias cat, List<Ejercicios> ex) {
 		super();
-		this.n_Nivel = n_Nivel;
-		this.c = c;
+		this.cat = cat;
+		this.ex = ex;
 	}
 	
-	//Getters && Setters 
+	//Getters && Setters
 	public int getId() {
 		return id;
 	}
-	public String getN_Nivel() {
-		return n_Nivel;
+	public Categorias getCat() {
+		return cat;
 	}
-	public Categorias getC() {
-		return c;
+	public List<Ejercicios> getEx() {
+		return ex;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public void setN_Nivel(String n_Nivel) {
-		this.n_Nivel = n_Nivel;
+	public void setCat(Categorias cat) {
+		this.cat = cat;
 	}
-	public void setC(Categorias c) {
-		this.c = c;
+	public void setEx(List<Ejercicios> ex) {
+		this.ex = ex;
 	}
 	
+	//To String
+	@Override
+	public String toString() {
+		return "Niveles [id=" + id + ", cat=" + cat + ", ex=" + ex + "]";
+	}
 }

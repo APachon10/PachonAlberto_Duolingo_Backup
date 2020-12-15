@@ -66,14 +66,13 @@ public class Idiomas {
 	public void setNombre_idioma(String nombre_idioma) {
 		this.nombre_idioma = nombre_idioma;
 	}
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-}
-=======
-}
->>>>>>> dev
-=======
+	
+	//To String
+	@Override
+	public String toString() {
+		return "Idiomas [idioma_id=" + idioma_id + ", siglas=" + siglas + ", nombre_idioma=" + nombre_idioma
+				+ ", Cursos=" + Cursos + "]";
+	}
+	
 	
 }
->>>>>>> dev

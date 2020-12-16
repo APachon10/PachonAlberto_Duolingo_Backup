@@ -14,17 +14,19 @@ import modelos.Idiomas;
 
 public class IdiomaImpl implements IIdiomas{
 	@Override
-	public void obtenerIdiomas() {
+	public ArrayList<Idiomas> obtenerIdiomas() {
 		Transaction t = null;
+		ArrayList<Idiomas> idiomas = new ArrayList<Idiomas>();
 		try(Session session = HibernateUtils.getSessionFactory().openSession()){
 			Query query = session.createQuery("from Idiomas");
-			ArrayList<Idiomas> idiomas = new ArrayList<Idiomas>();
 			idiomas= (ArrayList<Idiomas>) query.list();
-			for (int i = 0; i < idiomas.size(); i++) {
+			/*for (int i = 0; i < idiomas.size(); i++) {
 				System.out.println(idiomas.get(i).toString());
-			}
+			}*/
+			return idiomas;
 		}catch(Exception e){
 			e.printStackTrace();
+			return null;
 		}
 	}
 	@Override

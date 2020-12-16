@@ -1,7 +1,11 @@
 package interfaces;
 
+import java.util.ArrayList;
+
+import modelos.Idiomas;
+
 public interface IIdiomas {
-	public void obtenerIdiomas();
+	public ArrayList<Idiomas> obtenerIdiomas();
 	public void obtenerIdiomasPorId();
 	public void obtenerIdiomasPorNombre();
 	public void obtenerIdiomasPorSigla();

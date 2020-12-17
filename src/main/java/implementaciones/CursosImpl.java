@@ -13,17 +13,16 @@ import modelos.Cursos;
 public class CursosImpl implements ICursos{
 
 	@Override
-	public void obtenerCursos() {
+	public ArrayList<Cursos> obtenerCursos() {
 		Transaction t = null;
+		ArrayList<Cursos> cursos = new ArrayList<Cursos>();
 		try(Session session = HibernateUtils.getSessionFactory().openSession()){
 			Query query = session.createQuery("from Cursos");
-			ArrayList<Cursos> cursos = new ArrayList<Cursos>();
 			cursos= (ArrayList<Cursos>) query.list();
-			for (int i = 0; i < cursos.size(); i++) {
-				System.out.println("Hola : "+ cursos.get(i).toString());
-			}
+			return cursos;
 		}catch(Exception e){
 			e.printStackTrace();
+			return null;
 		}
 	}
 	@Override
@@ -40,5 +39,11 @@ public class CursosImpl implements ICursos{
 	@Override
 	public void borrarCurso() {
 
+	}
+	@Override
+	public void mostrarCursos(ArrayList<Cursos> cursos) {
+		for (int i = 0; i < cursos.size(); i++) {
+			System.out.println("Hola : "+ cursos.get(i).toString());
+		}
 	}
 }

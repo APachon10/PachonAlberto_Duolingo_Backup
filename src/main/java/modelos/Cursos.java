@@ -71,6 +71,12 @@ public class Cursos {
 		this.c2 = c2;
 	}
 	
+	public String getNombre_curso() {
+		return nombre_curso;
+	}
+	public void setNombre_curso(String nombre_curso) {
+		this.nombre_curso = nombre_curso;
+	}
 	//To String 
 	@Override
 	public String toString() {

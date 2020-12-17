@@ -20,9 +20,7 @@ public class IdiomaImpl implements IIdiomas{
 		try(Session session = HibernateUtils.getSessionFactory().openSession()){
 			Query query = session.createQuery("from Idiomas");
 			idiomas= (ArrayList<Idiomas>) query.list();
-			/*for (int i = 0; i < idiomas.size(); i++) {
-				System.out.println(idiomas.get(i).toString());
-			}*/
+			
 			return idiomas;
 		}catch(Exception e){
 			e.printStackTrace();
@@ -54,4 +52,20 @@ public class IdiomaImpl implements IIdiomas{
 	public void borrarIdioma() {
 
 	}
+	@Override
+	public void mostrarIdiomas(ArrayList<Idiomas> idiomas) {
+		for (int i = 0; i < idiomas.size(); i++) {
+			System.out.println("Hola:" +idiomas.get(i).toString());
+		}
+	}
+	
+	public static void main(String[] args) {
+		IdiomaImpl i = new IdiomaImpl();
+		ArrayList<Idiomas> idiomas = new ArrayList<Idiomas>();
+		IIdiomas i5 =  new IdiomaImpl();
+		idiomas = i5.obtenerIdiomas();
+		i.mostrarIdiomas(idiomas);
+	}
+	
+	
 }

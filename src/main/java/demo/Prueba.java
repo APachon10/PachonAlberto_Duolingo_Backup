@@ -22,6 +22,8 @@ public class Prueba {
 		
 		IIdiomas i2 =  new IdiomaImpl();
 		idiomas = i2.obtenerIdiomas();
+		ICursos c2 = new CursosImpl();
+		cursos= c2.obtenerCursos();
 		
 		Transaction t = null;
 		try(Session session = HibernateUtils.getSessionFactory().openSession()){     
@@ -31,15 +33,38 @@ public class Prueba {
 			i.setSiglas("ESP");
 			i.setCursos(cursos);
 			
+			Idiomas i3 = new Idiomas();
+			i3.setNombre_idioma("Catalan");
+			i3.setSiglas("caT");
+			i3.setCursos(cursos);
+			
+			Cursos c = new Cursos();
+			c.setNombre_curso("Holaaa curso");
+			c.setL_Destino(i);
+			c.setL_Origen(i3);
+			
 			for (int j = 0; j < idiomas.size(); j++) {
 				if(idiomas.get(j).getNombre_idioma().equals(i.getNombre_idioma())) {
+					System.out.println("Hola");
 					System.out.println("Valor repetido");
 				}else {
 					session.save(i);
+					session.save(i3);	
 					t.commit();
 				}
 			}
-			i2.obtenerIdiomas();
+			for (int j2 = 0; j2 < cursos.size(); j2++) {
+				if(cursos.get(j2).getNombre_curso().equals(c.getNombre_curso())) {
+					System.out.println("Hola");
+					System.out.println("Valor repetido");
+				}else {
+					session.save(c);
+					t.commit();
+				}
+			}
+			i2.mostrarIdiomas(idiomas);
+			c2.mostrarCursos(cursos);
+			
 		}catch(Exception e2) {
 			e2.printStackTrace();
 		}

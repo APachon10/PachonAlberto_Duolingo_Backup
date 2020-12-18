@@ -71,7 +71,7 @@ public class IdiomaImpl implements IIdiomas{
 		boolean existe=true;
 		try(Session session = HibernateUtils.getSessionFactory().openSession()){
 			Query nombre_idioma_db =session.createQuery("Select nombre_idioma from Idiomas where nombre_idioma = "+nombre_idiomas);
-			System.out.println("Adios:" +nombre_idioma_db.getQueryString());
+			
 			if(nombre_idioma_db.equals(nombre_idiomas)) {
 				existe=true;
 			}else {

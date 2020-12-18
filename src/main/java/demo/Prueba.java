@@ -43,14 +43,10 @@ public class Prueba {
 			c.setL_Destino(i);
 			c.setL_Origen(i3);
 			
-			session.save(i);
-			session.save(i3);
-			session.save(c);
 			
-			t.commit();	
-			i2.mostrarIdiomas(idiomas);
-			c2.mostrarCursos(cursos);
+			t.commit();
 			
+			System.out.println(i2.existeIdioma("Castellano"));
 		}catch(Exception e2) {
 			e2.printStackTrace();
 		}

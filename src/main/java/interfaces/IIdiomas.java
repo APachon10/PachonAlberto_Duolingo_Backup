@@ -7,6 +7,7 @@ import modelos.Idiomas;
 public interface IIdiomas {
 	public ArrayList<Idiomas> obtenerIdiomas();
 	public void mostrarIdiomas(ArrayList<Idiomas> idiomas);
+	public boolean existeIdioma(String nombre_idiomas);
 	public void obtenerIdiomasPorId();
 	public void obtenerIdiomasPorNombre();
 	public void obtenerIdiomasPorSigla();

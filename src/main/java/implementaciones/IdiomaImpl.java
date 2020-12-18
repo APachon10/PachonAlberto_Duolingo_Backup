@@ -1,8 +1,7 @@
 package implementaciones;
 
 import java.util.ArrayList;
-
-
+import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -65,6 +64,24 @@ public class IdiomaImpl implements IIdiomas{
 		IIdiomas i5 =  new IdiomaImpl();
 		idiomas = i5.obtenerIdiomas();
 		i.mostrarIdiomas(idiomas);
+	}
+	@Override
+	public boolean existeIdioma(String nombre_idiomas) {
+		Transaction t = null;
+		boolean existe=true;
+		try(Session session = HibernateUtils.getSessionFactory().openSession()){
+			Query nombre_idioma_db =session.createQuery("Select nombre_idioma from Idiomas where nombre_idioma = "+nombre_idiomas);
+			System.out.println("Adios:" +nombre_idioma_db.getQueryString());
+			if(nombre_idioma_db.equals(nombre_idiomas)) {
+				existe=true;
+			}else {
+				existe=false;
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+			
+		}
+		return existe;
 	}
 	
 	

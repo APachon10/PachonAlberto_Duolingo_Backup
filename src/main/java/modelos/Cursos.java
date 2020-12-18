@@ -20,9 +20,9 @@ public class Cursos {
 	//Atributos
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="curso_id")
+	@Column(name = "idioma_id")
 	private int idioma_id;
-	@Column(name="nombre_curso")
+	@Column(name="nombre_curso",unique = true)
 	private String nombre_curso;
 	
 	//Relaciones

@@ -20,9 +20,9 @@ public class Idiomas {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="idioma_id")
 	private int idioma_id;
-	@Column(name="siglas")
+	@Column(name="siglas",unique = true)
 	private String siglas;
-	@Column(name="nombre_idioma")
+	@Column(name="nombre_idioma",unique = true)
 	private String nombre_idioma;
 
 	//Relaciones

@@ -20,8 +20,8 @@ public class Cursos {
 	//Atributos
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idioma_id")
-	private int idioma_id;
+	@Column(name = "curso_id")
+	private int id;
 	@Column(name="nombre_curso",unique = true)
 	private String nombre_curso;
 	
@@ -46,8 +46,8 @@ public class Cursos {
 	}
 	
 	//Getters && Setters
-	public int getIdioma_id() {
-		return idioma_id;
+	public int getid() {
+		return id;
 	}
 	public Idiomas getL_Origen() {
 		return L_Origen;
@@ -58,8 +58,8 @@ public class Cursos {
 	public List<Categorias> getC2() {
 		return c2;
 	}
-	public void setIdioma_id(int idioma_id) {
-		this.idioma_id = idioma_id;
+	public void setIdioma_id(int id) {
+		this.id = id;
 	}
 	public void setL_Origen(Idiomas l_Origen) {
 		L_Origen = l_Origen;
@@ -80,7 +80,7 @@ public class Cursos {
 	//To String 
 	@Override
 	public String toString() {
-		return "Cursos [idioma_id=" + idioma_id + ", L_Origen=" + L_Origen + ", L_Destino=" + L_Destino + ", c2=" + c2
+		return "Cursos [curso_id=" + id + ", L_Origen=" + L_Origen + ", L_Destino=" + L_Destino + ", c2=" + c2
 				+ "]";
 	}
 	

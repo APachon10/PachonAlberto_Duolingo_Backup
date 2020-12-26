@@ -53,7 +53,7 @@ public class IdiomaImpl implements IIdiomas{
 	@Override
 	public void mostrarIdiomas(ArrayList<Idiomas> idiomas) {
 		for (int i = 0; i < idiomas.size(); i++) {
-			System.out.println("Hola:" +idiomas.get(i).toString());
+			System.out.println(idiomas.get(i).toString());
 		}
 	}
 	@Override

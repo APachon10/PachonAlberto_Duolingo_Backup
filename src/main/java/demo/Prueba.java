@@ -35,18 +35,18 @@ public class Prueba {
 			
 			Idiomas i3 = new Idiomas();
 			i3.setNombre_idioma("Catalan");
-			i3.setSiglas("caT");
+			i3.setSiglas("CAT");
 			i3.setCursos(cursos);
 			
 			Cursos c = new Cursos();
-			c.setNombre_curso("Catalan-Castellano");
+			c.setNombre_curso("Cat-Castellano");
 			c.setL_Destino(i);
 			c.setL_Origen(i3);
 			
-			
 			t.commit();
 			
-			System.out.println(i2.existeIdioma("Africano"));
+			i2.mostrarIdiomas(idiomas);
+			//System.out.println(i2.existeIdioma("Africano"));
 		}catch(Exception e2) {
 			e2.printStackTrace();
 		}

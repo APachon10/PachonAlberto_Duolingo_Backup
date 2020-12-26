@@ -46,7 +46,7 @@ public class Prueba {
 			
 			t.commit();
 			
-			System.out.println(i2.existeIdioma("Castellano"));
+			System.out.println(i2.existeIdioma("Africano"));
 		}catch(Exception e2) {
 			e2.printStackTrace();
 		}

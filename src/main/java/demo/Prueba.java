@@ -43,10 +43,8 @@ public class Prueba {
 			c.setL_Destino(i);
 			c.setL_Origen(i3);
 			
-			t.commit();
+			i2.obtenerIdiomasPorId(1);
 			
-			i2.mostrarIdiomas(idiomas);
-			//System.out.println(i2.existeIdioma("Africano"));
 		}catch(Exception e2) {
 			e2.printStackTrace();
 		}

@@ -8,9 +8,9 @@ public interface IIdiomas {
 	public ArrayList<Idiomas> obtenerIdiomas();
 	public void mostrarIdiomas(ArrayList<Idiomas> idiomas);
 	public boolean existeIdioma(String nombre_idiomas);
-	public void obtenerIdiomasPorId();
-	public void obtenerIdiomasPorNombre();
-	public void obtenerIdiomasPorSigla();
+	public Idiomas obtenerIdiomasPorId(int id);
+	public Idiomas obtenerIdiomasPorNombre(String nombre);
+	public Idiomas obtenerIdiomasPorSigla(String siglas);
 	public void insertarIdioma();
 	public void actualizarIdioma();
 	public void borrarIdioma();

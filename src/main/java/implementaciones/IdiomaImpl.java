@@ -9,6 +9,7 @@ import org.hibernate.query.Query;
 
 import hibernateUtils.HibernateUtils;
 import interfaces.IIdiomas;
+import modelos.Cursos;
 import modelos.Idiomas;
 
 public class IdiomaImpl implements IIdiomas{
@@ -26,16 +27,58 @@ public class IdiomaImpl implements IIdiomas{
 		}
 	}
 	@Override
-	public void obtenerIdiomasPorId() {
-
+	public Idiomas  obtenerIdiomasPorId(int id) {
+		Transaction t = null;
+		Idiomas i = new Idiomas();
+		ArrayList<Idiomas> idiomas = new ArrayList<Idiomas>();
+		int j=0;
+		try(Session session = HibernateUtils.getSessionFactory().openSession()){
+			Query query = session.createQuery("from Idiomas where idioma_id =:id");
+			query.setParameter("id", id);
+			ArrayList<Idiomas> result = (ArrayList<Idiomas>) query.getResultList();
+			if(!result.isEmpty()) {
+				for (int k = 0; k < result.size(); k++) {
+					i.setIdioma_id(result.get(k).getIdioma_id());
+					i.setNombre_idioma(result.get(k).getNombre_idioma());
+					i.setSiglas(result.get(k).getSiglas());
+					i.setCursos(result.get(k).getCursos());
+				}
+			}else {
+				System.out.println("No hay resultado ");
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
+		System.out.println(i.toString());
+		return i;
 	}
 	@Override
-	public void obtenerIdiomasPorNombre() {
-
+	public Idiomas obtenerIdiomasPorNombre(String nombre) {
+		Transaction t = null;
+		Idiomas i = new Idiomas();
+		try(Session session = HibernateUtils.getSessionFactory().openSession()){
+			Query query = session.createQuery("from Idiomas where nombre_idioma =:nombre");
+			query.setParameter("nombre", nombre);
+			
+			return i;
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
 	}
 	@Override
-	public void obtenerIdiomasPorSigla() {
-
+	public Idiomas  obtenerIdiomasPorSigla(String siglas) {
+		Transaction t = null;
+		Idiomas i = new Idiomas();
+		try(Session session = HibernateUtils.getSessionFactory().openSession()){
+			Query query = session.createQuery("from Idiomas where siglas =:siglas");
+			return i;
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
 	}
 	@Override
 	public void insertarIdioma() {
